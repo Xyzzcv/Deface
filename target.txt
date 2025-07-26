@@ -1,3 +1,3 @@
-http://your-target1.com
-http://your-target2.com
+http://your-https://www.wearepylon.com
+http://your-https://campus.quipper.com
 http://your-target2.com
