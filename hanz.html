@@ -1,0 +1,229 @@
+<!--
+--  Downloaded from : https://haxor.my.id/save/dravinzx.html
+--  Official Web : https://prinsh.com
+--  script-deface-generator.prinsh.com
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>HACKED</title>
+<style>
+body {
+  background-color: black;
+  color: #ff0033;
+  font-family: 'Courier New', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.snow {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.snowflake {
+  position: absolute;
+  color: #fff;
+  user-select: none;
+  animation: fall linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+img {
+  max-width: 75%;
+  height: auto;
+  margin-bottom: 30px;
+  z-index: 2;
+}
+
+.static-text {
+  font-size: 2.5em;
+  margin-bottom: 25px;
+  text-align: center;
+  text-shadow: 0 0 10px #ff0033;
+  z-index: 2;
+  font-weight: bold;
+}
+
+/* Glitch Style */
+.glitch-text {
+  display: inline-block;
+  position: relative;
+  color: #ff0033;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: "HANZ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  color: #ff0033;
+  background: black;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch-animate::before {
+  animation: glitchTop 0.3s steps(2, end);
+  opacity: 1;
+}
+
+.glitch-animate::after {
+  animation: glitchBottom 0.3s steps(2, end);
+  opacity: 1;
+}
+
+@keyframes glitchTop {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  50% { clip: rect(0, 9999px, 10px, 0); transform: translate(-2px, -2px); }
+  100% { clip: rect(0, 9999px, 0, 0); transform: none; }
+}
+
+@keyframes glitchBottom {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  50% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, 2px); }
+  100% { clip: rect(0, 9999px, 0, 0); transform: none; }
+}
+
+.line-container {
+  width: 90%;
+  max-width: 700px;
+  position: relative;
+  margin-bottom: 30px;
+  z-index: 2;
+  border-left: 2px solid #ff0033;
+  border-right: 2px solid #ff0033;
+  padding: 0 20px;
+  height: 30px;
+  overflow: hidden;
+}
+
+.moving-text {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 1.5em;
+  left: 100%;
+  animation: moveText 15s linear infinite;
+  text-shadow: 0 0 8px #ff0033;
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+.additional-text {
+  font-size: 1.8em;
+  margin: 20px 0;
+  text-align: center;
+  z-index: 2;
+  text-shadow: 0 0 8px #ff0033;
+}
+
+/* Hide audio player */
+audio {
+  display: none;
+}
+</style>
+</head>
+<body>
+  <div class="snow" id="snow"></div>
+  
+  <img src="https://files.catbox.moe/47ctpj.png" alt="HACKED">
+  
+  <div class="static-text">HACKED BY <span class="glitch-text" id="dravin">HANZ</span></div>
+  
+  <div class="additional-text">
+    SYSTEM SECURITY COMPROMISED
+  </div>
+  
+  <div class="line-container">
+    <div class="moving-text">WARNING: UNAUTHORIZED ACCESS DETECTED • DATA BREACH • </div>
+  </div>
+  
+  <div class="additional-text">
+    WE ARE IN YOUR SYSTEM
+  </div>
+
+  <audio id="bg-audio" autoplay loop>
+    <source src="https://files.catbox.moe/589ie9.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function createSnow() {
+      const snowContainer = document.getElementById('snow');
+      const snowflakeCount = 25;
+      
+      for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = '•';
+        
+        const size = Math.random() * 0.5 + 0.3;
+        const posX = Math.random() * window.innerWidth;
+        const duration = Math.random() * 15 + 10;
+        const delay = Math.random() * 5;
+        
+        snowflake.style.left = `${posX}px`;
+        snowflake.style.fontSize = `${size}em`;
+        snowflake.style.animationDuration = `${duration}s`;
+        snowflake.style.animationDelay = `${delay}s`;
+        snowflake.style.opacity = Math.random() * 0.5 + 0.3;
+        
+        snowContainer.appendChild(snowflake);
+      }
+    }
+
+    // Glitch every 7 seconds
+    setInterval(() => {
+      const dravin = document.getElementById("dravin");
+      dravin.classList.add("glitch-animate");
+      setTimeout(() => {
+        dravin.classList.remove("glitch-animate");
+      }, 300);
+    }, 7000);
+
+    document.addEventListener('click', function () {
+      const audio = document.getElementById('bg-audio');
+      audio.volume = 0.5;
+      audio.play().catch(e => console.log("Audio play failed:", e));
+    }, { once: true });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      createSnow();
+      const audio = document.getElementById('bg-audio');
+      audio.volume = 0.5;
+      const promise = audio.play();
+
+      if (promise !== undefined) {
+        promise.catch(() => {
+          console.log("Autoplay prevented. Waiting for user interaction.");
+        });
+      }
+    });
+  </script>
+</body>
+</html>
